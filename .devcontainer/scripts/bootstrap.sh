@@ -34,8 +34,8 @@ fi
 
 echo "LANG=en_US.UTF-8" | sudo tee /etc/default/locale
 
-# # Install R and Bioconductor dependencies
-# Rscript .devcontainer/scripts/install-r-packages.R
+# Install R and Bioconductor dependencies as root so /usr/local/lib/R/site-library is writable
+sudo Rscript .devcontainer/scripts/install-r-packages.R
 
 # Bootstrap the conda/mamba toolchain for CLI bioinformatics utilities
 # if [ -f "env/mamba-environment.yml" ]; then

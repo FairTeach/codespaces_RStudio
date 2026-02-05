@@ -3,7 +3,7 @@ options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/l
 cran_packages <- c(
   "tidyverse", "ggplot2", "hexbin", "pheatmap", "RColorBrewer",
   "ggbeeswarm", "dplyr", "ggrepel", "ggnewscale", "tidyr",
-  "readr", "GGally", "dbplyr"
+  "readr", "GGally", "dbplyr", "languageserver"
 )
 bioc_packages <- c(
   "airway", "SummarizedExperiment", "DESeq2", "vsn", "apeglm",
