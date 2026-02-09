@@ -10,26 +10,16 @@
   "features": {
     "ghcr.io/rocker-org/devcontainer-features/r-apt:latest": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages": "build-essential gfortran pkg-config libssl-dev libcurl4-openssl-dev libxml2-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libwebp-dev libwebpdemux2 libwebpmux3 libgsl-dev libxt-dev libglpk-dev libudunits2-dev"
+      "packages": "build-essential,gfortran,pkg-config,libssl-dev,libcurl4-openssl-dev,libxml2-dev,libfontconfig1-dev,libharfbuzz-dev,libfribidi-dev,libfreetype6-dev,libpng-dev,libtiff5-dev,libjpeg-dev,libwebp-dev,libwebpdemux2,libwebpmux3,libgsl-dev,libxt-dev,libglpk-dev,libudunits2-dev"
     },
     "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
       "packages": "tidyverse,ggplot2,hexbin,pheatmap,RColorBrewer,ggbeeswarm,dplyr,ggrepel,ggnewscale,tidyr,readr,GGally,dbplyr,languageserver"
     },
     "ghcr.io/rocker-org/devcontainer-features/rstudio-server:0": {},
-    "ghcr.io/rocker-org/devcontainer-features/miniforge:2": {},
-    "ghcr.io/devcontainers/features/desktop-lite:1": {
-      "password": "rstudio",
-      "webPort": "6080",
-      "vncPort": "5901",
-      "resolutions": "1920x1080"
-    }
+    "ghcr.io/rocker-org/devcontainer-features/miniforge:2": {}
   },
-  "forwardPorts": [6080, 8787],
+  "forwardPorts": [8787],
   "portsAttributes": {
-    "6080": {
-      "label": "Desktop (noVNC)",
-      "onAutoForward": "notify"
-    },
     "8787": {
       "label": "RStudio Server",
       "onAutoForward": "notify"
@@ -40,15 +30,10 @@
     "vscode": {
       "extensions": [
         "REditorSupport.r",
-        "quarto.quarto",
-        "ms-python.python",
         "streetsidesoftware.code-spell-checker",
         "streetsidesoftware.code-spell-checker-english",
         "tomoki1207.pdf",
-        "yzane.markdown-pdf",
-        "ms-vscode.live-server",
-        "sndst00m.vscode-native-svg-preview",
-        "vscjava.vscode-java-pack"
+        "yzane.markdown-pdf"
       ],
       "settings": {
         "r.rterm.option": ["--no-save", "--no-restore"],
