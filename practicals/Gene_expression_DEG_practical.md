@@ -10,9 +10,10 @@ editor_options:
   chunk_output_type: console
 ---
     
-# Universidad de Navarra
-## Máster en Métodos Computacionales en Ciencias
-## Análisis e interpretación de datos de alto rendimiento 
+# Gene Expression DEG practical
+
+### Máster en Métodos Computacionales en Ciencias - Análisis e interpretación de datos de alto rendimiento. UNAV
+### Máster en Ingeniería Biomédica - Bioinformática Avanzada. UPNA
  
 # Introduction  
   
@@ -483,11 +484,11 @@ Identifying outliers samples and sources of variation in the data.
 ```{r, warning = FALSE, message=FALSE}
 
 # If needed, install the pheatmap and RColorBrewer packages
-# BiocManager::install("pheatmap")
-# if (!require(pheatmap)) {
-#     install.packages("pheatmap")
-#     require(pheatmap)
-# }
+BiocManager::install("pheatmap")
+if (!require(pheatmap)) {
+    install.packages("pheatmap")
+    require(pheatmap)
+}
 library(pheatmap)
 
 # BiocManager::install("RColorBrewer")
@@ -845,11 +846,11 @@ clusterProfiler - http://bioconductor.org/packages/release/bioc/html/clusterProf
 ```{r}
 
 # Load clusterProfiler package  http://bioconductor.org/packages/release/bioc/html/clusterProfiler.html
-# BiocManager::install("clusterProfiler")
-# if (!require(clusterProfiler)) {
-#     install.packages("clusterProfiler")
-#     require(clusterProfiler)
-# }
+BiocManager::install("clusterProfiler")
+if (!require(clusterProfiler)) {
+    install.packages("clusterProfiler")
+    require(clusterProfiler)
+}
 library("clusterProfiler")
 library("enrichplot")
 # BiocManager::install("ggnewscale")
