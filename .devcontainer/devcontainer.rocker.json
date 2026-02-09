@@ -1,6 +1,6 @@
 {
-  "name": "codespaces_RStudio",
-  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "name": "codespaces_RStudio_rocker",
+  "image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "containerEnv": {
     "PASSWORD": "rstudio",
@@ -8,13 +8,6 @@
     "DISABLE_AUTH": "false"
   },
   "features": {
-    "ghcr.io/rocker-org/devcontainer-features/r-apt:latest": {},
-    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages": "build-essential,gfortran,pkg-config,libcairo2-dev,libssl-dev,libcurl4-openssl-dev,libxml2-dev,libfontconfig1-dev,libharfbuzz-dev,libfribidi-dev,libfreetype6-dev,libpng-dev,libtiff5-dev,libjpeg-dev,libwebp-dev,libwebpdemux2,libwebpmux3,libgsl-dev,libxt-dev,libglpk-dev,libudunits2-dev"
-    },
-    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-      "packages": "tidyverse,ggplot2,hexbin,pheatmap,RColorBrewer,ggbeeswarm,dplyr,ggrepel,ggnewscale,tidyr,readr,GGally,dbplyr,languageserver"
-    },
     "ghcr.io/rocker-org/devcontainer-features/rstudio-server:0": {},
     "ghcr.io/rocker-org/devcontainer-features/miniforge:2": {}
   },
@@ -25,7 +18,7 @@
       "onAutoForward": "notify"
     }
   },
-  "postCreateCommand": "bash .devcontainer/scripts/bootstrap-ubuntu.sh",
+  "postCreateCommand": "bash .devcontainer/scripts/bootstrap-rocker.sh",
   "customizations": {
     "vscode": {
       "extensions": [
