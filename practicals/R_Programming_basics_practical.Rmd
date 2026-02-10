@@ -1,10 +1,11 @@
 ---
 title: "R Programming Basics – Hands-On Practical"
-format: html
+format: pdf
 code-copy: true
 page-layout: full
 author: "Igor Ruiz de los Mozos"
 ---
+NOTE to render instal `quarto install tinytex`
 
 > **Programme:** Master’s in Biomedical Engineering • **Module:** Advanced Bioinformatics  
 > **Lesson ** R Fundamentals, Data Wrangling & Visualisation  
@@ -53,10 +54,12 @@ R is an essential tool for bioinformatics due to its flexibility, extensive libr
 > **Tip:** Use the shortcut `Ctrl + Enter` (Windows) or `Cmd + Enter` (Mac) to run a line of code from the Source Pane in the Console.
 
 
-```{r}
+```{r setup}
+knitr::opts_knit$set(root.dir = "/workspaces/codespaces_RStudio/course_materials/R_basics")
+
 # Set your working directory once per session
 getwd()
-setwd("/home/rstudio")
+setwd("/workspaces/codespaces_RStudio/course_materials/R_basics")
 
 
 # Install required libraries once:
@@ -463,7 +466,7 @@ ggplot(df, aes(x = Pass, fill = Pass)) +
 ```{r}
 
 library(readr)
-biomed <- read_csv("/home/rstudio/biomed_data.csv", show_col_types = FALSE)
+biomed <- read_csv("biomed_data.csv", show_col_types = FALSE)
 glimpse(biomed)      # columns & types
 summary(biomed)      # summary stats & NAs
 ```
