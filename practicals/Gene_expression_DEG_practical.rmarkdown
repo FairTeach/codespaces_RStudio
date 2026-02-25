@@ -4,15 +4,19 @@ format: pdf
 code-copy: true
 page-layout: full
 author: "Igor Ruiz de los Mozos PhD"
+editor_options: 
+  chunk_output_type: console
 ---
+# Gene Expression DEG practical
+  
+  
 **Start Codespaces to run this practical on the cloud!**
-[![Open in GitHub Codespaces](practicals/codespaces/badge.svg)](https://codespaces.new/FairTeach/codespaces_RStudio?quickstart=1)
+[![Open in GitHub Codespaces](figures/badge.png)](https://codespaces.new/FairTeach/codespaces_RStudio?quickstart=1)
 
 **Continue GitHub Codespaces practical on the cloud!**
-[![Continue GitHub Codespaces](practicals/GitHub-Codespaces-181717.svg)](https://github.com/codespaces)
+[![Continue GitHub Codespaces](figures/GitHub-Codespaces-181717.png)](https://github.com/codespaces)
     
-# Gene Expression DEG practical
-
+    
 ### Máster en Métodos Computacionales en Ciencias - Análisis e interpretación de datos de alto rendimiento. UNAV
 ### Máster en Ingeniería Biomédica - Bioinformática Avanzada. UPNA
  
