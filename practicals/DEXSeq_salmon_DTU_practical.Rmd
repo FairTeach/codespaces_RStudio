@@ -8,9 +8,8 @@ output:
   pdf_document: default
 ---
   
-# Universidad de Navarra
-# Máster en Métodos Computacionales en Ciencias
-# Análisis e interpretación de datos de alto rendimiento    
+### Máster en Métodos Computacionales en Ciencias - Análisis e interpretación de datos de alto rendimiento. UNAV
+### Máster en Ingeniería Biomédica - Bioinformática Avanzada. UPNA
   
 # Introduction  
     
@@ -22,7 +21,7 @@ Replication-dependent histones (RDH) are required for packaging of newly synthet
 ![Pavla Gajdušková & Igor Ruiz de los Mozos  et al. 2020, NSMB ](figures/41594_2020_406_Fig1_HTML.png)  
 ![ Pavla Gajdušková & Igor Ruiz de los Mozos  et al. 2020, NSMB ](figures/41594_2020_406_Fig7_HTML.png)  
 
-## Data proccesing
+## Data processing
 
 The data processing for this practical was generated using a snakemake pipeline (Köster Bioinformatics 2012) to join and compute all the data in UNAV cluster. Attached report on ADI.
 
