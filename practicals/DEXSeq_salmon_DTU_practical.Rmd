@@ -40,10 +40,27 @@ This practical was extracted from manuals below under permissive licenses.
   
 # Install and load R packages
  
+```{bash }
+# Run in terminal
+sudo apt-get update
+# sudo apt-get install -y libcurl4-openssl-dev libxml2-dev libssl-dev
+sudo apt-get install -y libbz2-dev liblzma-dev
+```
+ 
+ 
 ```{r, warning = FALSE, message=FALSE}
 
+
+
 # Install and load packages
-# BiocManager::install("IsoformSwitchAnalyzeR")
+if (!requireNamespace("BiocManager", quietly = TRUE)){
+    install.packages("BiocManager")
+    BiocManager::install()
+}
+BiocManager::install(c("DEXSeq", "BSgenome", "rtracklayer", "tximeta"))
+
+BiocManager::install("IsoformSwitchAnalyzeR")
+library("tximeta")
 library("IsoformSwitchAnalyzeR")
 # BiocManager::install("DESeq2")
 library("DESeq2")
