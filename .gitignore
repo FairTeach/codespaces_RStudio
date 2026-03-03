@@ -8,3 +8,10 @@ practicals/R_Programming_basics_practical_files*
 *.tab
 *.rds
 Merge_GO_Gene_Set_Enrichment_Analysis_CC_.pdf
+
+
+# Remove big files 
+*.gtf
+*.RData
+*.fasta
+*.fa 
