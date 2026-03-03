@@ -6,8 +6,23 @@ output:
     df_print: paged
   word_document: default
   pdf_document: default
+editor_options: 
+  chunk_output_type: console
 ---
-  
+
+**Start Codespaces to run this practical on the cloud!**
+[![Open in GitHub Codespaces](figures/badge.svg)](https://codespaces.new/FairTeach/codespaces_RStudio?quickstart=1)
+
+**Continue GitHub Codespaces practical on the cloud!**
+[![Continue GitHub Codespaces](figures/GitHub-Codespaces-181717.svg)](https://github.com/codespaces)
+    
+
+> **Programme:** Master’s in Biomedical Engineering • **Module:** Advanced Bioinformatics  
+> **Programme:** Master’s in Data Science • **Module:** Análisis e interpretación de datos de alto rendimiento  
+> **Lesson ** Transcript Differential Usage using Bioconductor and R  
+
+---
+
 ### Máster en Métodos Computacionales en Ciencias - Análisis e interpretación de datos de alto rendimiento. UNAV
 ### Máster en Ingeniería Biomédica - Bioinformática Avanzada. UPNA
   
@@ -41,25 +56,21 @@ This practical was extracted from manuals below under permissive licenses.
 # Install and load R packages
  
 ```{bash }
-# Run in terminal
-sudo apt-get update
-# sudo apt-get install -y libcurl4-openssl-dev libxml2-dev libssl-dev
-sudo apt-get install -y libbz2-dev liblzma-dev
+# Run in terminal Needed to install IsoformSwitchAnalyzeR
+# sudo apt-get update
+# sudo apt-get install -y libbz2-dev liblzma-dev
 ```
  
  
-```{r, warning = FALSE, message=FALSE}
-
-
-
+```{r, setup, warning = FALSE, message=FALSE}
+knitr::opts_knit$set(root.dir = "/workspaces/codespaces_RStudio/practicals")
 # Install and load packages
-if (!requireNamespace("BiocManager", quietly = TRUE)){
-    install.packages("BiocManager")
-    BiocManager::install()
-}
-BiocManager::install(c("DEXSeq", "BSgenome", "rtracklayer", "tximeta"))
-
-BiocManager::install("IsoformSwitchAnalyzeR")
+# if (!requireNamespace("BiocManager", quietly = TRUE)){
+#     install.packages("BiocManager")
+#     BiocManager::install()
+# }
+# BiocManager::install(c("DEXSeq", "BSgenome", "rtracklayer", "tximeta"))
+# BiocManager::install("IsoformSwitchAnalyzeR")
 library("tximeta")
 library("IsoformSwitchAnalyzeR")
 # BiocManager::install("DESeq2")
@@ -78,12 +89,17 @@ library("dbplyr")
 # WARNIG, change to your system path!!!
 # # Load directory from MAC
 # directory <-"/Users/mozosi/Dropbox (UCL-MN Team)/Class/Unav2021/ML/DGE"
+# setwd(directory)
+# list.files()
 
 # Load directory from Windows
-directory <- "C:/Users/d682011.ADMON-CFNAVARRA/OneDrive - NAVARRA SOCIEDADES PÚBLICAS/Others/classes/Unav2023/DTU"
-setwd(directory)
-list.files()
+# directory <- "C:/Users/WINDOWS.ADMON-CFNAVARRA/OneDrive - NAVARRA SOCIEDADES PÚBLICAS/Others/classes/Unav2023/DTU"
 
+
+# Set your working directory once per session
+getwd()
+directory <- "/workspaces/codespaces_RStudio/practicals" 
+setwd(directory)
 
 
 # Download a workspace with objects to workout this practical
@@ -91,9 +107,30 @@ list.files()
 # Alternatively you can directly download from html
 # https://www.dropbox.com/s/kgczy695714gewg/DTU2.RData?dl=0
 
+if(!require(googledrive)) install.packages("googledrive")
+library(googledrive)
+
+drive_deauth()
+drive_user()
+
+# Download .RData
+Rdata <-  drive_get(as_id("1iViTjOCvhEJ7yyI6NsY5k8smi2O5DYwn"))
+drive_download(Rdata, overwrite = TRUE,  path="DTU_download2.RData")
+
+# Download GTF
+# https://drive.google.com/file/d/14lvKCVXRG8qwwileT1vnDYhDUFiT6BIo/view?usp=drive_link
+gtf <-  drive_get(as_id("14lvKCVXRG8qwwileT1vnDYhDUFiT6BIo"))
+drive_download(gtf, overwrite = TRUE,  path="gencode.v33.primary_assembly.annotation.gtf")
+
+# Download fasta trasnscripts
+# https://drive.google.com/file/d/1KWYpaCIxhwRq-0DhQTaQDQFU-_kBBHA3/view?usp=drive_link
+TranscrIsoforms <-  drive_get(as_id("1KWYpaCIxhwRq-0DhQTaQDQFU-_kBBHA3"))
+drive_download(TranscrIsoforms, overwrite = TRUE,  path="isoformSwitchAnalyzeR_isoform_nt.fa")
+
+
 # load a workspace into the current session
 # if you don't specify the path, the cwd is assumed
-load("DTU_download.RData") 
+load("DTU_download2.RData") 
 
 
 ```
@@ -187,18 +224,19 @@ head(salmonQuant$counts, 2)
     
 # Import data and create SwitchAnalyzeRlist
 
-```{r, warning = FALSE, message=FALSE, eval = FALSE}
+```{r, warning = FALSE, message=TRUE, eval = FALSE}
 ### Step (1) Import data and create SwitchAnalyzeRlist
-### Create switchAnalyzeRlist
-aSwitchList <- importRdata(
-  isoformCountMatrix   = salmonQuant$counts,
-  isoformRepExpression = salmonQuant$abundance,
-  designMatrix         = myDesign,
-  isoformExonAnnoation = "/Users/mozosi/Dropbox (UCL-MN Team)/Class/Unav2021/ML/DTU/gencode.v33.primary_assembly.annotation.gtf",
-  isoformNtFasta       = "/Users/mozosi/Dropbox (UCL-MN Team)/Class/Unav2021/ML/DTU/transcripts.fa",
-  fixStringTieAnnotationProblem = TRUE,
-  showProgress = FALSE
-)
+### Create switchAnalyzeRlist      This process is quite computational intensive, so I already provided you the aSwitchList object to load
+# aSwitchList <- importRdata(
+#   isoformCountMatrix   = salmonQuant$counts,
+#   isoformRepExpression = salmonQuant$abundance,
+#   designMatrix         = myDesign,
+#   isoformExonAnnoation = "/workspaces/codespaces_RStudio/practicals/gencode.v33.primary_assembly.annotation.gtf",
+#   isoformNtFasta       = "/workspaces/codespaces_RStudio/practicals/isoformSwitchAnalyzeR_isoform_nt.fa",
+#   fixStringTieAnnotationProblem = TRUE,
+#   showProgress = FALSE
+# )
+# 
 
 # Step 1 of 7: Checking data...
 # Step 2 of 7: Obtaining annotation...
@@ -283,6 +321,7 @@ Functions performing the differential isoform usage test that enables switch ide
 ```{r, warning = FALSE, message=FALSE}
 ### Test for isoform switches
 mySwitchList <- isoformSwitchTestDEXSeq( switchAnalyzeRlist = mySwitchList, reduceToSwitchingGenes=T )   # OR
+
 # Step 1 of 2: Testing each pairwise comparisons with DEXSeq (this might be a bit slow)...
 #     Estimated time (for dataset with ~30.000 isoforms): 3.3 min
 #   |===================================================================================================================================================================| 100%

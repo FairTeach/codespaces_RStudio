@@ -63,7 +63,7 @@ R is an essential tool for bioinformatics due to its flexibility, extensive libr
 
 
 ```{r setup}
-# knitr::opts_knit$set(root.dir = "/workspaces/codespaces_RStudio/course_materials/R_basics")
+knitr::opts_knit$set(root.dir = "/workspaces/codespaces_RStudio/course_materials/R_basics")
 
 # Set your working directory once per session
 getwd()
