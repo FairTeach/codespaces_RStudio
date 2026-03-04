@@ -1,9 +1,8 @@
 ---
 title: "Transcript Differential Usage using Bioconductor and R"
-format: pdf
+author: "Igor Ruiz de los Mozos"
 code-copy: true
 page-layout: full
-author: "Igor Ruiz de los Mozos PhD"
 editor_options: 
   chunk_output_type: console
 ---
