@@ -271,8 +271,6 @@ head(salmonQuant$counts, 2)
 
 
 
-# save the workspace to the file .RData in the cwd
-# save(salmonQuant, myDesign, aSwitchList, mySwitchList, TopSwitches, file="DTU_04032026.RData") 
 ```
 
 ```{r, summary, warning = FALSE, message=FALSE}
@@ -378,8 +376,9 @@ A5: Alternative 5'end donor site. Compared to the hypothetical pre-RNA an altern
 A3: Alternative 3'end acceptor site. Compared to the hypothetical pre-RNA an alternative 3'end acceptor site was used. Since it is compared to the pre-RNA, the donor site used is per definition more downstream than the the pre-RNA (the downstream exon is shorter).
 ATSS: Alternative Transcription Start Sites. Compared to the hypothetical pre-RNA an alternative transcription start sites was used. Since it is compared to the pre-RNA, the ATSS site used is per definition more downstream than the the pre-RNA .
 ATTS: Alternative Transcription Termination Sites. Compared to the hypothetical pre-RNA an alternative transcription Termination sites was used. Since it is compared to the pre-RNA, the ATTS site used is per definition more upstream than the the pre-RNA.
+  
 ![ alternative splicing examples ](figures/Alternative_splicing.png)  
-
+  
 
 ```{r, analyzeAlternativeSplicing, warning = FALSE, message=FALSE}
 ### Step (4) Analyze alternative splicing
@@ -417,6 +416,9 @@ extractTopSwitches(
     n = 10, 
     sortByQvals = TRUE
 )
+
+# save the workspace to the file .RData in the cwd
+# save(salmonQuant, myDesign, aSwitchList, mySwitchList, TopSwitches, file="DTU_04032026.RData") 
 
 
 ```
