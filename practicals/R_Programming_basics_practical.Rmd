@@ -1,26 +1,30 @@
 ---
 title: "R Programming Basics – Hands-On Practical"
-format: pdf
-code-copy: true
-page-layout: full
 author: "Igor Ruiz de los Mozos PhD"
+code-copy: true
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+format: pdf
+page-layout: full
 ---
 NOTE to render install `quarto install tinytex`
 
 **Start Codespaces to run this practical on the cloud!**
-[![Open in GitHub Codespaces](figures/badge.svg)](https://codespaces.new/FairTeach/codespaces_RStudio?quickstart=1)
+[![Open in GitHub Codespaces]](https://codespaces.new/FairTeach/codespaces_RStudio?quickstart=1)
 
 **Continue GitHub Codespaces practical on the cloud!**
-[![Continue GitHub Codespaces](figures/GitHub-Codespaces-181717.svg)](https://github.com/codespaces)
+[![Continue GitHub Codespaces]](https://github.com/codespaces)
     
 
-> **Programme:** Master’s in Biomedical Engineering • **Module:** Advanced Bioinformatics  
-> **Programme:** Master’s in Data Science • **Module:** Análisis e interpretación de datos de alto rendimiento  
+> **Programme:** Master’s in Biomedical Engineering • **Module:** Advanced Bioinformatics  
+> **Programme:** Master’s in Data Science • **Module:** Análisis e interpretación de datos de alto rendimiento  
 > **Lesson ** R Fundamentals, Data Wrangling & Visualisation  
 
 ---
 
-## 🗺️ Table of Contents
+##    Table of Contents
 1. [Overview & Learning Objectives](#overview)  
 2. [The RStudio Interface](#rstudio)  
 3. [R Programming Basics](#basics)  
@@ -28,7 +32,7 @@ NOTE to render install `quarto install tinytex`
 5. [Wrangling with **dplyr**](#dplyr)  
 6. [Reshaping with **tidyr**](#tidyr)  
 7. [Visualising with **ggplot2**](#ggplot)  
-8. [🌟 Full Workflow on `biomed_data.csv`](#workflow)  
+8. [Full Workflow on `biomed_data.csv`](#workflow)  
 
 
 ---
@@ -56,7 +60,7 @@ R is an essential tool for bioinformatics due to its flexibility, extensive libr
 |----------------------------------------|-----------------------------------|-------------------------------------|
 | **Source/Editor** (top-left)           | Write & save scripts (`.R`, `.Rmd`)| `Ctrl/Cmd + Shift + C` toggles comments |
 | **Console** (bottom-left)              | Run commands interactively        | `↑/↓` scrolls through history       |
-| **Environment / History** (top-right)  | View objects & past commands      | Click ✖ to remove objects           |
+| **Environment / History** (top-right)  | View objects & past commands      | Click X to remove objects           |
 | **Files / Plots / Packages / Help**    | File nav, graphics, install pkgs, docs | Click a plot → *Export* to save     |
 
 > **Tip:** Use the shortcut `Ctrl + Enter` (Windows) or `Cmd + Enter` (Mac) to run a line of code from the Source Pane in the Console.
@@ -469,7 +473,7 @@ ggplot(df, aes(x = Pass, fill = Pass)) +
   labs(title = "Count of Pass and Fail")
 ```
 
-## 8 <span id="workflow">🌟 Full Workflow on biomed_data.csv</span>
+## 8 <span id="workflow"> Full Workflow on biomed_data.csv</span>
 #### 8.1 Load & Inspect
 ```{r}
 
