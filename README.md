@@ -7,14 +7,17 @@ Reproducible teaching labs for RNA-seq and R programming built around GitHub Cod
 
 ## Launch a brand-new Codespace
 1. Click **Open in GitHub Codespaces**. GitHub provisions a Codespace from `.devcontainer/devcontainer.json`.
-2. Initial creation installs Ubuntu packages, R/Bioconductor libraries, and CLI tools�plan for **30 minutes**. Keep the tab open until the build completes.
+2. Initial creation installs Ubuntu packages, R/Bioconductor libraries, and CLI tools. Plan for **30 minutes**. Keep the tab open until the build completes.
 3. Once VS Code opens, run:
    ```bash
    rstudio-server start
    ```
+
+![Launch Rstudio IDE](practicals/figures/rserverStart.png)
+
 4. Port **8787** auto-forwards. Use the notification or Ports tab to open RStudio (user `rstudio`, password `rstudio`).
 
-![Launch Rstudio IDE](practicals\figures\rserverStart.png)
+
 
 ## Resume an existing Codespace
 1. Click **Reopen My Codespace** button on top and pick the workspace you created earlier.
@@ -32,7 +35,7 @@ _A screenshot annotated with these callouts will be inserted here._
 - **Plots** displays the current graphics device; use navigation arrows to flip through prior plots.
 - **Packages** see installed libraries, enable/disable them, and launch help pages.
 
-![Annotated RStudio IDE](practicals\figures\rstudio.png)
+![Annotated RStudio IDE](practicals/figures/rstudio.png)
 
 
 ### Quick start in RStudio
@@ -44,7 +47,7 @@ _A screenshot annotated with these callouts will be inserted here._
 ## Lessons in `practicals/`
 1. **[R_Programming_basics_practical.Rmd](practicals/R_Programming_basics_practical.Rmd)** introduces R syntax, data frames, and visualization fundamentals tailored for bioinformatics students.
 2. **[Gene_expression_DEG_practical.Rmd](practicals/Gene_expression_DEG_practical.Rmd)** walks through differential gene expression analysis with DESeq2, including QC, normalization, and volcano plots.
-3. **[DEXSeq_salmon_DTU_practical.Rmd](practicals/DEXSeq_salmon_DTU_practical.Rmd)** covers isoform-level quantification with Salmon and DEXSeq for differential transcript usage.
+3. **[DEXSeq_salmon_DTU_practical.md](practicals/DEXSeq_salmon_DTU_practical.md)** covers isoform-level quantification with Salmon and DEXSeq for differential transcript usage.
 
 ## What you get
 - **RStudio Server 2023.x** exposed on port 8787 via the Rocker devcontainer feature.
@@ -87,7 +90,7 @@ Add extra tools (e.g., gffcompare, bwa, hisat2) to the YAML and rebuild or run `
 
 ## Troubleshooting tips
 - Rebuild the container (`Codespaces / Rebuild container`) after changing `.devcontainer/**`, `env/mamba-environment.yml`, or bootstrap scripts.
-- If RStudio Server doesn�t start, check the Ports tab for 8787; restart with `rstudio-server stop` / `rstudio-server start`.
+- If RStudio Server doesn't start, check the Ports tab for 8787; restart with `rstudio-server stop` / `rstudio-server start`.
 - Desktop-lite can be toggled via the command palette (`Codespaces: Open in Browser`) if you need the VNC desktop.
 
 ¿Happy learning? Questions or suggestions? Open an issue or reach out on  @FairTeach!
